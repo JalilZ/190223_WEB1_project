@@ -70,7 +70,7 @@
         }
 
         const upstudent = (id) => {
-            axios.put(MY_SERVER + "/" + id, XXXXXX).then(result => {
+            axios.put(MY_SERVER + "/" + id, { "name": sname.value, "age": sage.value }).then(result => {
                 console.log(result.data);
                 loadData();
             }
