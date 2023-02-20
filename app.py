@@ -28,9 +28,13 @@ def get():
 def post():
     data = request.get_json()
     student = Students(name=data['name'], age=data['age'])
-    db.session.add(student)
-    db.session.commit()
-    return jsonify({'id': student.id})
+    isin = Students.query.filter_by(name=data['name']).first()
+    if isin:
+        return jsonify({'message': f'{student.name} already exists'}), 409
+    else:
+        db.session.add(student)
+        db.session.commit()
+        return jsonify({'id': student.id})
 
 @app.route('/students/<int:stu_id>', methods=['PUT'])
 def put(stu_id):
