@@ -14,10 +14,12 @@
 </head>
 
 <body>
-    <div id="score" style="width: 60px; background-color: aqua;">Score: 0</div>
+    
+    <a href="index.html"><div id="score" style="width: 60px; background-color: aqua;">Score: 0</div></a>
+    
 
     <button id="ball"
-        style="border-radius: 50%; padding: 14px 14px; font-size: 16px;position: relative;">&#128513</button>
+        style="border-radius: 50%; padding: 10px 10px; font-size: 16px;position: relative;">&#128513</button>
     <button id="p1"
         style="border-radius: 25%; padding: 90px 2px; font-size: 16px; position: absolute; right:300px"></button>
 
@@ -36,7 +38,7 @@
             if (startLeftPos > (innerWidth*0.95) || startLeftPos < 0) { leftDelta *= -1 }
             if (startTopPos > (innerHeight*0.95) || startTopPos < 0) { topDelta *= -1 }
 
-            if (startLeftPos > getOffset(p1).left && startTopPos > getOffset(p1).top && startTopPos < (getOffset(p1).top + 90)) { 
+            if (startLeftPos > getOffset(p1).left && startTopPos > getOffset(p1).top && startTopPos < (getOffset(p1).top + p1.offsetHeight)) { 
                 leftDelta *= -1;  startLeftPos -= 0;}
 
             if (startLeftPos > (getOffset(p1).left + 1) & startLeftPos < (getOffset(p1).left + 2) & leftDelta == 1) { 
